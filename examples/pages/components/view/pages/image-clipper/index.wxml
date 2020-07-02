@@ -1,0 +1,56 @@
+<view class='container'>
+	<l-image-clipper 
+    show="{{currentConfig.show}}" 
+    image-url="{{currentConfig.imageUrl}}" 
+    z-index="{{currentConfig.zIndex}}" 
+    type="{{currentConfig.type}}" 
+    quality="{{currentConfig.quality}}" 
+    width="{{currentConfig.width}}" 
+    height="{{currentConfig.height}}" 
+    max-height="{{currentConfig.maxHeight}}" 
+    max-width="{{currentConfig.maxWidth}}" 
+    min-width="{{currentConfig.minWidth}}" 
+    min-height="{{currentConfig.minHeight}}" 
+    lock-width="{{currentConfig.lockWidth}}" 
+    lock-height="{{currentConfig.lockHeight}}" 
+    lock-ratio="{{currentConfig.lockRatio}}" 
+    scale-ratio="{{currentConfig.scaleRatio}}" 
+    min-ratio="{{currentConfig.minRatio}}" 
+    max-ratio="{{currentConfig.maxRatio}}" 
+    disable-scale="{{currentConfig.disableScale}}" 
+    disable-rotate="{{currentConfig.disableRotate}}" 
+    limit-move="{{currentConfig.limitMove}}" 
+    bindlinclip="linclip"
+  >
+		<l-image-clipper-tools 
+      z-index="{{toolsConfig.zIndex}}" 
+      check-image="{{toolsConfig.checkImage}}" 
+      check-image-icon="{{toolsConfig.checkImageIcon}}"
+      rotate-along="{{toolsConfig.rotateAlong}}"
+      rotate-along-icon="{{toolsConfig.rotateAlongIcon}}"
+      rotate-inverse="{{toolsConfig.rotateInverse}}"
+      rotate-inverse-icon="{{toolsConfig.rotateInverseIcon}}" 
+      sure="{{toolsConfig.sure}}"
+      sure-icon="{{toolsConfig.sureIcon}}"
+      close="{{toolsConfig.close}}"
+      close-icon="{{toolsConfig.closeIcon}}"
+      rotate-angle="{{toolsConfig.rotateAngle}}"
+      lock-width="{{toolsConfig.lockWidth}}" 
+      lock-height="{{toolsConfig.lockHeight}}" 
+      lock-ratio="{{toolsConfig.lockRatio}}" 
+      scale-ratio="{{toolsConfig.scaleRatio}}" 
+      disable-scale="{{toolsConfig.disableScale}}" 
+      disable-rotate="{{toolsConfig.disableRotate}}" 
+      limit-move="{{toolsConfig.limitMove}}"
+    ></l-image-clipper-tools>
+	</l-image-clipper>
+	<content-title name="ImageCipper" describe="图片裁剪">
+		<content-card l-content="content" name="{{item.title}}" wx:for="{{clipperNaviConfigs}}" wx:for-item="item" wx:key="index">
+			<l-button bind:lintap="showClipper" size="large" data-index="{{index}}" wx:if="{{item.type === 0 || item.type === 2}}">显示组件</l-button>
+      <l-button bind:lintap="upload" size="large" data-index="{{index}}" wx:if="{{item.type === 1}}">选择图片</l-button>
+      <view class="image-wrapper">
+        <image src="{{item.config.resultImageUrl}}" wx:if="{{item.config.resultImageUrl}}"></image>
+      </view>
+		</content-card>
+	</content-title>
+</view>

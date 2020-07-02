@@ -83,6 +83,12 @@ const basicNaviConfigs = [
     desc: '进度条',
     componentsPath: '/pages/components/view/pages/progress/index'
   },
+  {
+    icon: '/images/component/progress.png',
+    title: 'ImageClipper',
+    desc: '图片裁剪',
+    componentsPath: '/pages/components/view/pages/image-clipper/index'
+  },
 ];
 
 export default basicNaviConfigs;
